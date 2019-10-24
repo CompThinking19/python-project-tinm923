@@ -42,7 +42,7 @@ class Player(pygame.sprite.Sprite):
         if self.rect.bottom < 0: #goes off the top return on the bottom
             self.rect.top = HEIGHT
 
-#make the trash sprite and initialize it
+#make the trash sprite
 class Trash(pygame.sprite.Sprite):
     def __init__(self): #initialize all of the attributes for the trash sprite
         pygame.sprite.Sprite.__init__(self) #super init
