@@ -1,4 +1,11 @@
-# Pygame template - skeleton for a new pygame project
+'''
+This is the trash game. This game will have the user move their character around the screen to collect pieces of trash. 
+There is a constant loop that refreshes the character based on which arrow key is pressed. This will use the pygame
+library, random library, and the os library. There will be trash sprites and a single player sprite. When the objects
+collide, the trash sprite should disappear and 1 should be added to the users score. When there are no sprites left
+the user should be presented with their score for the level or game. 
+JACOB MARTIN
+'''
 import pygame
 import random
 import os
