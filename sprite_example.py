@@ -62,7 +62,7 @@ class Trash(pygame.sprite.Sprite):
 pygame.init()
 pygame.mixer.init()  # for sound
 screen = pygame.display.set_mode((WIDTH, HEIGHT)) #create the display
-pygame.display.set_caption("My Game") #set caption
+pygame.display.set_caption("Trash Game") #set caption
 clock = pygame.time.Clock() 
 
 numTrash = 4#int(raw_input("Please input a number of trash to pick up: ")) #remove later and set for each level
