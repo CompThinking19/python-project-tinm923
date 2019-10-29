@@ -10,6 +10,10 @@ import pygame
 import random
 import os
 
+game_folder = os.path.dirname(__file__)
+img_folder = os.path.join(game_folder, 'img')
+player_img = pygame.image.load(os.path.join(img_folder, 'idle.png')).convert()
+
 WIDTH = 800  # width of our game window
 HEIGHT = 600 # height of our game window
 FPS = 60 # frames per second
@@ -25,8 +29,8 @@ BLUE = (0, 0, 255)
 class Player(pygame.sprite.Sprite):
     def __init__(self): #initialize the player sprite
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((50, 50)) #Make the player a 50 x 50 image
-        self.image.fill(GREEN) #Fill the sprite with green
+        self.image = player_img # make the player the player image
+        self.image.set_colorkey(BLACK) #fill background of player image
         self.rect = self.image.get_rect() 
         self.rect.center = (WIDTH / 2, HEIGHT / 2) # set the sprite initial position
     
