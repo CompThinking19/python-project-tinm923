@@ -12,7 +12,6 @@ import os
 
 game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, 'img')
-player_img = pygame.image.load(os.path.join(img_folder, 'idle.png')).convert()
 
 WIDTH = 800  # width of our game window
 HEIGHT = 600 # height of our game window
@@ -67,6 +66,7 @@ pygame.init()
 pygame.mixer.init()  # for sound
 screen = pygame.display.set_mode((WIDTH, HEIGHT)) #create the display
 pygame.display.set_caption("Trash Game") #set caption
+player_img = pygame.image.load(os.path.join(img_folder, 'idle.png')).convert()
 clock = pygame.time.Clock() 
 
 numTrash = 4#int(raw_input("Please input a number of trash to pick up: ")) #remove later and set for each level
