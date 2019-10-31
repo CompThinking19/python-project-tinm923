@@ -84,9 +84,9 @@ left_img = pygame.image.load(os.path.join(img_folder, 'left.png')).convert()
 bottle_img = pygame.image.load(os.path.join(img_folder, 'bottle.png')).convert()
 can_img = pygame.image.load(os.path.join(img_folder, 'can.png')).convert()
 
-numTrash = 6#int(raw_input("Please input a number of trash to pick up: ")) #remove later and set for each level
+numTrash = 6 #remove later and set for each level
  
-playerSprites = pygame.sprite.Group() #group of player sprites could be 2 player
+playerSprites = pygame.sprite.Group() #group of player sprites could be 2 player eventually
 trashSprites = pygame.sprite.Group() #group of all bottlr sprites
 player = Player() #make a new player sprite
 playerSprites.add(player) #add the player to the player sprites group
@@ -98,6 +98,8 @@ for i in range(numTrash):
     else:
         trash = can()
         trashSprites.add(trash)
+
+score = 0
 # Game Loop
 running = True
 while running:
@@ -112,11 +114,14 @@ while running:
     # Update
     pressed = pygame.key.get_pressed()
     playerSprites.update(pressed)
+    if (pygame.sprite.spritecollide(player, trashSprites, True)):
+        score += 1
     # Render (draw)
-    screen.fill(BLUE)
+    screen.fill(BLACK)
     playerSprites.draw(screen)
     trashSprites.draw(screen)
     # *after* drawing everything, flip the display
     pygame.display.flip()
 
 pygame.quit()
+print score
