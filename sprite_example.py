@@ -29,7 +29,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self): #initialize the player sprite
         pygame.sprite.Sprite.__init__(self)
         self.image = right_img # make the player the player image
-        self.image.set_colorkey(BLACK) #fill background of player image
+        self.image.set_colorkey(BLACK) #ignore blcak pixels of player image
         self.rect = self.image.get_rect() 
         self.rect.center = (WIDTH / 2, HEIGHT / 2) # set the sprite initial position
     
@@ -41,11 +41,11 @@ class Player(pygame.sprite.Sprite):
             self.rect.y += 5
         if pressed[pygame.K_LEFT]: #left key pressed
             self.image = left_img
-            self.image.set_colorkey(BLACK)
+            self.image.set_colorkey(BLACK) #ignore blcak pixels 
             self.rect.x -= 5
         if pressed[pygame.K_RIGHT]: #right key pressed
             self.image = right_img
-            self.image.set_colorkey(BLACK)
+            self.image.set_colorkey(BLACK) #ignore blcak pixels 
             self.rect.x += 5
         if self.rect.left > WIDTH: #if it goes off the right side return on left
             self.rect.right = 0
@@ -61,7 +61,7 @@ class bottle(pygame.sprite.Sprite):
     def __init__(self): #initialize all of the attributes for the trash sprite
         pygame.sprite.Sprite.__init__(self) #super init
         self.image = bottle_img # make the trash the trash image
-        self.image.set_colorkey(BLACK) #fill background of trash image
+        self.image.set_colorkey(BLACK) #ignore blcak pixels of trash image
         self.rect = self.image.get_rect() 
         self.rect.center = (random.randint(1, WIDTH - 9),random.randint(1, HEIGHT - 49)) #randomly place the bottle on the screen
 #make the can sprite
@@ -69,7 +69,7 @@ class can(pygame.sprite.Sprite):
     def __init__(self): #initialize all of the attributes for the trash sprite
         pygame.sprite.Sprite.__init__(self) #super init
         self.image = can_img # make the can the can image
-        self.image.set_colorkey(BLACK) #fill background of can image
+        self.image.set_colorkey(BLACK) #ignore blcak pixels of can image
         self.rect = self.image.get_rect() 
         self.rect.center = (random.randint(1, WIDTH - 9),random.randint(1, HEIGHT - 49)) #randomly place the can on the screen
 
