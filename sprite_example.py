@@ -17,19 +17,15 @@ WIDTH = 800  # width of our game window
 HEIGHT = 600 # height of our game window
 FPS = 60 # frames per second
 
-#Define colors
+#Define color
 BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
 
 #define the player sprite and attributes
 class Player(pygame.sprite.Sprite):
     def __init__(self): #initialize the player sprite
         pygame.sprite.Sprite.__init__(self)
         self.image = right_img # make the player the player image
-        self.image.set_colorkey(BLACK) #ignore blcak pixels of player image
+        self.image.set_colorkey(BLACK) #ignore black pixels of player image
         self.rect = self.image.get_rect() 
         self.rect.center = (WIDTH / 2, HEIGHT / 2) # set the sprite initial position
     
@@ -41,11 +37,11 @@ class Player(pygame.sprite.Sprite):
             self.rect.y += 5
         if pressed[pygame.K_LEFT]: #left key pressed
             self.image = left_img
-            self.image.set_colorkey(BLACK) #ignore blcak pixels 
+            self.image.set_colorkey(BLACK) #ignore black pixels 
             self.rect.x -= 5
         if pressed[pygame.K_RIGHT]: #right key pressed
             self.image = right_img
-            self.image.set_colorkey(BLACK) #ignore blcak pixels 
+            self.image.set_colorkey(BLACK) #ignore black pixels 
             self.rect.x += 5
         if self.rect.left > WIDTH: #if it goes off the right side return on left
             self.rect.right = 0
@@ -61,7 +57,7 @@ class bottle(pygame.sprite.Sprite):
     def __init__(self): #initialize all of the attributes for the trash sprite
         pygame.sprite.Sprite.__init__(self) #super init
         self.image = bottle_img # make the trash the trash image
-        self.image.set_colorkey(BLACK) #ignore blcak pixels of trash image
+        self.image.set_colorkey(BLACK) #ignore black pixels of trash image
         self.rect = self.image.get_rect() 
         self.rect.center = (random.randint(1, WIDTH - 9),random.randint(1, HEIGHT - 49)) #randomly place the bottle on the screen
 #make the can sprite
@@ -69,7 +65,7 @@ class can(pygame.sprite.Sprite):
     def __init__(self): #initialize all of the attributes for the trash sprite
         pygame.sprite.Sprite.__init__(self) #super init
         self.image = can_img # make the can the can image
-        self.image.set_colorkey(BLACK) #ignore blcak pixels of can image
+        self.image.set_colorkey(BLACK) #ignore black pixels of can image
         self.rect = self.image.get_rect() 
         self.rect.center = (random.randint(1, WIDTH - 9),random.randint(1, HEIGHT - 49)) #randomly place the can on the screen
 
@@ -79,6 +75,7 @@ pygame.mixer.init()  # for sound
 screen = pygame.display.set_mode((WIDTH, HEIGHT)) #create the display
 pygame.display.set_caption("Trash Game") #set caption
 clock = pygame.time.Clock() 
+#load the player and trash sprites into variables
 right_img = pygame.image.load(os.path.join(img_folder, 'right.png')).convert()
 left_img = pygame.image.load(os.path.join(img_folder, 'left.png')).convert()
 bottle_img = pygame.image.load(os.path.join(img_folder, 'bottle.png')).convert()
@@ -91,37 +88,42 @@ trashSprites = pygame.sprite.Group() #group of all bottlr sprites
 player = Player() #make a new player sprite
 playerSprites.add(player) #add the player to the player sprites group
 
+#add half bottles and half cans to the trash group
 for i in range(numTrash):
-    if (i < 3):
+    if (i < numTrash/2):
         trash = bottle()
         trashSprites.add(trash)
     else:
         trash = can()
         trashSprites.add(trash)
-
+#initialize the users score
 score = 0
+
 # Game Loop
 running = True
 while running:
-    
-    #keep loop running at the right speed
+    # Keep loop running at the right speed
     clock.tick(FPS)
     # Process input (events)
     for event in pygame.event.get():
-        #check for closing window
+        # Check for closing window
         if event.type == pygame.QUIT:
             running = False
     # Update
     pressed = pygame.key.get_pressed()
     playerSprites.update(pressed)
+    #if the player collides with a trash sprite remove the trash from the screen
     if (pygame.sprite.spritecollide(player, trashSprites, True)):
+        #add to score for collision
         score += 1
     # Render (draw)
     screen.fill(BLACK)
     playerSprites.draw(screen)
     trashSprites.draw(screen)
-    # *after* drawing everything, flip the display
+    # After drawing everything, flip the display
     pygame.display.flip()
 
 pygame.quit()
+
+#print users score
 print score
