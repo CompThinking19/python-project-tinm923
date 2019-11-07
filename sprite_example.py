@@ -33,23 +33,23 @@ class Player(pygame.sprite.Sprite):
     def update(self, direction):
         if pressed[pygame.K_UP]: #up key pressed
             self.rect.y -= 5
-        if pressed[pygame.K_DOWN]: #down key pressed
+        elif pressed[pygame.K_DOWN]: #down key pressed
             self.rect.y += 5
-        if pressed[pygame.K_LEFT]: #left key pressed
+        elif pressed[pygame.K_LEFT]: #left key pressed
             self.image = left_img
             self.image.set_colorkey(BLACK) #ignore black pixels 
             self.rect.x -= 5
-        if pressed[pygame.K_RIGHT]: #right key pressed
+        elif pressed[pygame.K_RIGHT]: #right key pressed
             self.image = right_img
             self.image.set_colorkey(BLACK) #ignore black pixels 
             self.rect.x += 5
         if self.rect.left > WIDTH: #if it goes off the right side return on left
             self.rect.right = 0
-        if self.rect.right < 0:    #if it goes off the left side reutrn on right
+        elif self.rect.right < 0:    #if it goes off the left side reutrn on right
             self.rect.left = WIDTH 
-        if self.rect.top > HEIGHT: #goes off the bottom return on the top
+        elif self.rect.top > HEIGHT: #goes off the bottom return on the top
             self.rect.bottom = 0
-        if self.rect.bottom < 0: #goes off the top return on the bottom
+        elif self.rect.bottom < 0: #goes off the top return on the bottom
             self.rect.top = HEIGHT
 
 #make the trash sprite
