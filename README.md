@@ -1,5 +1,4 @@
 # python-project-tinm923
-python-project-tinm923 created by GitHub Classroom
 Requirements to run this program:
 -Python 2.7
 -Pygame 1.9.6
