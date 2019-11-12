@@ -153,7 +153,7 @@ while running:
     if (pygame.sprite.spritecollide(player, trashSprites, True)):
         #add to score for collision
         score += 1
-        if (score == lvlOneMaxScore):
+        if (score == lvlOneMaxScore):#collected all the trash go to win screen
             win_screen(score)
             game_finish = True
 
