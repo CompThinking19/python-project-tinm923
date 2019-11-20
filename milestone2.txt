@@ -1,0 +1,1 @@
+Such great work here. I did get a few game-freezing bugs that I'm not sure how I'd replicate. One came when I was trying to move diagonally, but I'm not sure that's what caused it. I'd recommend improvements such as adding a second level or some enemies, but we both know you've already collected all the points on offer here.
