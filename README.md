@@ -9,11 +9,11 @@ After pygame is installed, run the command:
 python2 main.py
 ```
 * Objective
- * -Collect all of the trash on the screen
+  * -Collect all of the trash on the screen
 
 * Controls:
- * -Up, Down, Left, or Right arrow keys
- * -There is no diagonal movement
+  * -Up, Down, Left, or Right arrow keys
+  * -There is no diagonal movement
 
 To exit the game click the exit button. Otherwise, when the user collects all the trash the winner screen appears. The winner screen will appear for 5 seconds then go to the start screen again.
 
