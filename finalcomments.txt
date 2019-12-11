@@ -1,0 +1,11 @@
+Comments
+You had a good introductory comment and many comments throughout that gave a sense of what each bit did. I would have liked to see a bit more "why" in a few of them, however.
+
+Code Quality
+I'm so impressed by the complexity of this code given the scope of the class. Obviously, you came in with existing knowledge, but even so this was an impressive amount of work, especially given that you were using someon else's library, which can become its own kind of difficult work.
+
+Ambition
+As I said above, the scale of what you did here is more than I expected with the project. I would have liked to have seen more about process in your README, however.
+
+Aesthetics
+It does what it set out to do. I could recommend further improvements, but those are outside the scope of the class and hence these comments.
